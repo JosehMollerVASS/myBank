@@ -1,0 +1,8 @@
+.title {
+    font: 20.5px var(--ion-font-family); 
+    padding: 0 0 30px;
+    margin-top: 0;
+    text-align: left;
+    color: var(--color-grey-dark);
+    @media (max-width: 780px) { display: none; }
+  }

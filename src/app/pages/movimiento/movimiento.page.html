@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button text="Atras"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-weight: bold;">Tus movimientos</ion-title>
+    <ion-buttons slot="end">           
+       <ion-button style="padding: 5px;">
+         <ion-icon name="power"></ion-icon>
+       </ion-button>
+     </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of movimiento; let i=index" style="padding: 10px;">
+    <ion-card-subtitle>dia: {{item.dia}}</ion-card-subtitle>
+    <ion-card-title>monto: US$ {{item.monto}}</ion-card-title>    
+  </ion-card>
+</ion-content>

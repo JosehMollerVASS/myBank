@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button text="Atras"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-weight: bold;">El clima</ion-title>
+    <ion-buttons slot="end">            
+       <ion-button style="padding: 5px;">
+         <ion-icon name="power"></ion-icon>
+       </ion-button>
+     </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <!--City-->
+    <ion-row class="ion-text-center">
+        <ion-col class="ion-text-center">
+            <h1>{{resultado.name}}</h1>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+        <ion-col>
+            <p>{{weatherDesc.description | titlecase}}</p>
+        </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+        <ion-col>
+            <img [src]="weatherDesc.icon | climaIcons">
+        </ion-col>
+        <ion-col>
+            <h2 class="temperature">{{temperatura.temp | number: '1.0-0'}}º</h2>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <h3 class="viento">💨 {{viento.speed}} km/h</h3>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+</ion-content>

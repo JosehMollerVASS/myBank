@@ -11,6 +11,27 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'inicio/:user',
+    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+  },
+  {
+    path: 'movimiento',
+    loadChildren: () => import('./pages/movimiento/movimiento.module').then( m => m.MovimientoPageModule)
+  },
+  {
+    path: 'movimiento/:data',
+    loadChildren: () => import('./pages/movimiento/movimiento.module').then( m => m.MovimientoPageModule)
+  },
+  {
+    path: 'clima',
+    loadChildren: () => import('./pages/clima/clima.module').then( m => m.ClimaPageModule)
+  },
+  
 ];
 
 @NgModule({

@@ -1,0 +1,18 @@
+<div style="margin: 10%;" id="btns" class="buttonContainer">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" *ngFor="let item of numerosA; let i = index;">
+        <ion-button [disabled]="documento.length >=6" (click)="numeroPresaionado(i)" color="light" class="buttonClass">{{item}}</ion-button>
+      </ion-col>       
+      <ion-button [disabled]="documento.length <1" style="margin-left: 7px;margin-top: 10px;" (click)="retrocederNumero()"  color="light" class="buttonClass"><</ion-button>      
+        
+    </ion-row>
+  </ion-grid> 
+  <ion-label>ingrese su contraseña de 6 dígitos</ion-label>
+  <h2 style="margin: 10%;">
+    {{documeExpuesto}}
+  </h2>
+</div>   
+<div >
+  <ion-button expand="full" [disabled]="documento.length < 6" (click)="aceptarPopOver()">Aceptar</ion-button>  
+</div>

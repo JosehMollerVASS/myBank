@@ -19,7 +19,9 @@ export class ClimaPage implements OnInit {
 
     logicColor = 'light';
   constructor(private weather: ClimaService,
-    private geolocation: Geolocation) { }
+    private geolocation: Geolocation) {
+      console.log("clima")
+     }
 
     async ngOnInit() {
  

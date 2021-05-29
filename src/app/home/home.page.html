@@ -1,41 +1,20 @@
 
   <ion-content [fullscreen]="true"  class="bg-class">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+  
   <div id="container">
     <div style="text-align: left; padding: 20%;">
       <h1 style="font-size: 7rem; color: grey;">My</h1>
       
     <strong style="font-size: 3rem; font-weight: bold;">BANK</strong>
     </div>
-    <div class="login-container" [class.hidden]="!showLogin">    
-      <div class="login-view">    
-        <div class="login-box">
-          <div  class="login-form">         
-            <div class="login-inputs">    
+    <div class="login-container">         
+        <div class="login-box">         
                 <div>
                   <ion-item no-padding >
                     <ion-label no-padding   position="stacked">Número de documento</ion-label>
                     <ion-input  (ionChange)="numeroDoc($event)"  (ionInput)="utils.checkOnlyNumbers($event)" type="text" name="dni" inputmode="numeric" pattern="[0-9]*" [placeholder]="documentNumberPlaceholder" [minlength]="documentNumberLength" [attr.maxlength]="documentNumberLength"></ion-input>
                   </ion-item>
-                  <br>
-                  <!--
-                      <div class="checkbox-container" >
-                    <ion-checkbox mode="md"></ion-checkbox>
-                    <ion-label>
-                      Recordar
-                        <div class="tooltip-content right">
-                          <div class="tooltip-arrow"></div>
-                          
-                        </div>
-                    </ion-label>
-                  </div>
-                  -->
-                
+                  <br>                  
                   <ion-item no-padding [disabled]="documento.length<5">
                     <ion-label no-padding  position="stacked">Clave de ingreso (6 dígitos)</ion-label>
                     <ion-input (ionFocus)="abrirTeclado($event)" class="input-password-discs" readonly type="password" inputmode="numeric" name="password" maxlength="6" minlength="6" [value]="password" [placeholder]="docExpuesto" ></ion-input>
@@ -45,11 +24,8 @@
               <br>
               <ion-button  [disabled]="documento.length < 6 || docExpuesto.length <6"  (click)="validarUsuario()" shape="round" color="dark" expand="full" >
                 Ingresar                
-              </ion-button>              
-            </div>
-          </div> 
-        </div>
-      </div>
+              </ion-button>                        
+        </div>      
     </div>   
     <!--
       <ion-button shape="round" color="danger" (click)="loginGoogle()">iniciar con Google</ion-button>

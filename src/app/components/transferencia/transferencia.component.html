@@ -1,3 +1,23 @@
-<p>
-  transferencia works!
-</p>
+<ion-item *ngFor="let item of tarjetas" (click)="seleccionarTarjeta(item, 'debito')">
+<ion-label>
+  <h2>US$: {{item.monto}}</h2>
+  <p>Débito</p>  
+</ion-label>
+</ion-item>
+<ion-item *ngFor="let item of creditos" (click)="seleccionarTarjeta(item, 'credito')" >
+  <ion-label>
+    <h2>US$: {{item.monto}}</h2>
+    <p>Crédito</p>  
+  </ion-label>
+  </ion-item>
+  <div style="padding: 20px;" *ngIf="valor == 1 || value=='destino'">
+    <p>otra Cuenta</p>
+    <ion-checkbox (click)="otraCuenta($event)" ></ion-checkbox>
+    <ion-item [hidden]="enable">
+      <ion-input (ionChange)="numeroTarjtea($event)" inputmode="numeric" maxlength="16"  ionch placeholder="xxxxxxxxxxxxxxxx"></ion-input>
+      <ion-button fill="outline" expand="block" (click)="scanBarcode()">
+        <ion-icon name="barcode"></ion-icon>
+      </ion-button>
+      <ion-button fill="outline" expand="block" [disabled]="numeroTarjeta.length < 16" (click)="aceptar()">></ion-button>
+    </ion-item>
+  </div>

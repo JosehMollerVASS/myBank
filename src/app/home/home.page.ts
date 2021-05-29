@@ -14,16 +14,9 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
-  showLogin = true;
-  isPasswordBlocked: boolean;
-  storageItemsLoaded: boolean;
-  isKeyboardOpen: boolean;
-  loginButtonDisabled: boolean;
-  identifier: number;
+  
   documentNumberLength: number;
-  documentNumberPlaceholder: string;
-  errorMessage: string;  
+  documentNumberPlaceholder: string;  
   documento="";
   password=""
   docExpuesto="";

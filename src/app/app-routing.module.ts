@@ -31,7 +31,22 @@ const routes: Routes = [
     path: 'clima',
     loadChildren: () => import('./pages/clima/clima.module').then( m => m.ClimaPageModule)
   },
-  
+  {
+    path: 'transferencia',
+    loadChildren: () => import('./pages/transferencia/transferencia.module').then( m => m.TransferenciaPageModule)
+  },
+  {
+    path: 'transferencia/:data/:valor/:user',
+    loadChildren: () => import('./pages/transferencia/transferencia.module').then( m => m.TransferenciaPageModule)
+  },
+  {
+    path: 'exito',
+    loadChildren: () => import('./pages/exito/exito.module').then( m => m.ExitoPageModule)
+  },
+  {
+    path: 'exito/:user',
+    loadChildren: () => import('./pages/exito/exito.module').then( m => m.ExitoPageModule)
+  },
 ];
 
 @NgModule({

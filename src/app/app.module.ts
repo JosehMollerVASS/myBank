@@ -14,7 +14,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TransferenciaComponent } from './components/transferencia/transferencia.component';
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 const config = {
     apiKey: "AIzaSyBnMxjp6qWfzobip2cwG9zXu45QQE2roIw",
     authDomain: "mybank-ce85a.firebaseapp.com",
@@ -43,7 +43,8 @@ const db = firebase.firestore();
                 StatusBar, 
                 GooglePlus,
                 NativeStorage,
-                Geolocation,                
+                Geolocation,  
+                BarcodeScanner,              
                 { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   

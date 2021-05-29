@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons  slot="start">
+      <ion-back-button text="Atras"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-weight: bold;">{{titulo}}</ion-title>
+    <ion-buttons slot="end">           
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngIf="this.valor == '0'">
+    <ion-badge (click)="abrirCuentas('origen')" slot="start">Cuenta origen</ion-badge>    
+    <ion-label>
+      <h2>{{tarjeta}}</h2>
+      <p>{{tipoTarjtea}}</p>
+    </ion-label>
+  </ion-item>
+  <br>
+  <ion-item >
+    <ion-badge (click)="abrirCuentas('destino')" color="tertiary" slot="start">Cuenta destino</ion-badge>    
+    <ion-label>
+      <h2>{{tarjetaDestino}}</h2>
+      <p>{{tipoTarjteaDestino}}</p>
+    </ion-label>
+  </ion-item>
+  <br>
+  <div  style="padding: 20px;"  >    
+    <div *ngIf="this.valor == '0'">
+      <ion-label>
+        Monto a transferir US$        
+      </ion-label>
+    <ion-item >
+      <ion-input (ionChange)="nuevoMonto($event)" inputmode="numeric" maxlength="5"  ionch placeholder="000.00"></ion-input>            
+    </ion-item>
+    <p style="font-size: small;">máximo de trasnferencia para esta tarjeta: {{montoMaximo}} </p>
+    </div>
+  </div>
+  <div *ngIf="this.valor != '0'" style="padding: 20px;"  >    
+    <div>
+      <ion-label>
+        Recibir un cantidad específica
+      </ion-label>
+<ion-checkbox (click)="otroMonto($event)" ></ion-checkbox>
+    <ion-item [hidden]="enable!">
+      <ion-input (ionChange)="nuevoMonto($event)" inputmode="numeric" maxlength="5"  ionch placeholder="000.00"></ion-input>
+      <!--
+        <ion-button fill="outline" expand="block" [disabled]="montoTrans.length < 5" (click)="aceptar()">></ion-button>
+      -->      
+    </ion-item>
+    </div>
+  </div>
+<br>
+
+  <div  *ngIf="this.valor == '0'" style="padding: 20px;">
+  <ion-button (click)="procesarTransaccion()" shape="round" expand="full" >
+    Procesar Transaccion           
+  </ion-button> 
+</div>
+
+
+<div  *ngIf="this.valor != '0'" style="padding: 20px;">
+  <ion-button [disabled]="tarjetaDestino.substring(1,4) == 'xxx'" (click)="createBarcode()" shape="round" color="tertiary" expand="full" >
+    Generar QR           
+  </ion-button> 
+</div>
+</ion-content>
